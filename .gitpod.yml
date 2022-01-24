@@ -9,13 +9,19 @@ tasks:
       lando start
       lando composer require drush/drush
       lando composer install
-      gp preview $(gp url $(lando info --format=json | jq -r ".[0].urls[1]" | sed -e 's#http://localhost:\(\)#\1#'))
+      gp await-port 8080 && gp preview $(gp url 8080)
   
 ports:
   # db port
   - port: 3306
     onOpen: ignore
-
+  - port: 8080
+    onOpen: ignore
+  - port: 8443
+    onOpen: ignore
+  - port: 9999
+    onOpen: open-browser
+    
 github:
   prebuilds:
     # enable for the default branch (defaults to true)
