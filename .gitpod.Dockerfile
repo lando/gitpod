@@ -8,7 +8,5 @@ RUN echo \
 RUN sudo apt-get -y update
 RUN sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 
-RUN sudo apt-get -y update
-RUN sudo bash -c "curl -Ls https://github.com/lando/hyperdrive/releases/download/v0.6.1/hyperdrive > /usr/local/bin/hyperdrive"
-RUN sudo chmod +x /usr/local/bin/hyperdrive
-RUN hyperdrive -y --name "James T. Kirk" --email kirk@enterprise.mil
+RUN sudo curl -fsSL -o /usr/local/bin/lando "https://files.lando.dev/cli/lando-linux-x64-edge"
+RUN sudo chmod +x /usr/local/bin/lando
