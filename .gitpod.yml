@@ -12,9 +12,10 @@ tasks:
       lando drush si -y --account-pass=admin --site-name='lando_drupal9' demo_umami
       gp preview $(gp url $(lando info --format=json | jq -r ".[0].urls[1]" | sed -e 's#http://localhost:\(\)#\1#'))
   
-# ports:
-#   - port: 8080
-#     onOpen: open-preview
+ports:
+  # db port
+  - port: 3306
+    onOpen: ignore
 
 github:
   prebuilds:
