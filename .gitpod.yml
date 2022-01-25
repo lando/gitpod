@@ -3,17 +3,17 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: Install Lando
+  - name: Setup Lando
     init: |
       echo false > ~/.lando/cache/report_errors
       lando --clear
+      
+  - name: Start Lando & Launch Browser
+    command: |
       lando init --source remote --remote-url https://www.drupal.org/download-latest/tar.gz --remote-options="--strip-components 1" --recipe drupal9 --webroot . --name lando-drupal9
       lando start
       lando composer require drush/drush
       lando composer install
-      
-  - name: Launch Browser
-    command: |
       gp preview $(gp url $(lando info --format=json | jq -r ".[0].urls[1]" | sed -e 's#http://localhost:\(\)#\1#'))
 
 ports:
