@@ -5,7 +5,6 @@ image:
 tasks:
   - name: Install Lando
     init: |
-      cp -f config.yml ~/.lando/config.yml
       echo false > ~/.lando/cache/report_errors
       lando --clear
       lando init --source remote --remote-url https://www.drupal.org/download-latest/tar.gz --remote-options="--strip-components 1" --recipe drupal9 --webroot . --name lando-drupal9
@@ -15,7 +14,6 @@ tasks:
       
   - name: Launch Browser
     command: |
-      lando restart -y
       gp preview $(gp url $(lando info --format=json | jq -r ".[0].urls[1]" | sed -e 's#http://localhost:\(\)#\1#'))
 
 ports:
