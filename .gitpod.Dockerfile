@@ -10,3 +10,4 @@ RUN sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 
 RUN sudo curl -fsSL -o /usr/local/bin/lando "https://files.lando.dev/cli/lando-linux-x64-edge"
 RUN sudo chmod +x /usr/local/bin/lando
+RUN mkdir -p ~/.lando/cache

@@ -5,18 +5,21 @@ image:
 tasks:
   - name: Drupal start
     init: |
+      cp -f config.yml ~/.lando/config.yml
+      echo false > ~/.lando/cache/report_errors
       lando init --source remote --remote-url https://www.drupal.org/download-latest/tar.gz --remote-options="--strip-components 1" --recipe drupal9 --webroot . --name lando-drupal9
+      lando --clear
       lando start
       lando composer require drush/drush
       lando composer install
-      gp await-port 80 && gp preview $(gp url 80)
+      gp await-port 8080 && gp preview $(gp url 8080)
   
 ports:
   - port: 3306
     onOpen: ignore
-  - port: 80
+  - port: 8080
     onOpen: open-browser
-  - port: 443
+  - port: 4443
     onOpen: ignore
     
 github:
