@@ -3,7 +3,7 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: Install Lando
+  - name: Setup Lando and Launch Preview Browser
     init: |
       echo false > ~/.lando/cache/report_errors
       lando --clear
@@ -11,8 +11,6 @@ tasks:
       lando start
       lando composer require drush/drush
       lando composer install
-      
-  - name: Launch Browser
     command: |
       lando rebuild -y
       gp preview $(gp url $(lando info --format=json | jq -r ".[0].urls[1]" | sed -e 's#http://localhost:\(\)#\1#'))
