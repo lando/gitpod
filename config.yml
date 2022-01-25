@@ -1,4 +1,3 @@
-proxyHttpPort: '8080'
-proxyHttpsPort: '4443'
+proxy: 'OFF'
 bindAddress: '0.0.0.0'
 proxyBindAddress: '0.0.0.0'
