@@ -4,10 +4,12 @@ image:
 
 tasks:
   - name: Install
-    init: |
+    before: |
       cp -f config.yml ~/.lando/config.yml
       echo false > ~/.lando/cache/report_errors
+    init: |
       lando init --source remote --remote-url https://www.drupal.org/download-latest/tar.gz --remote-options="--strip-components 1" --recipe drupal9 --webroot . --name lando-drupal9
+    command: |
       lando --clear
       lando start
       lando composer require drush/drush
