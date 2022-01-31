@@ -6,7 +6,7 @@ tasks:
   - name: Setup Gitpod for Lando
     init: |
       lando init --source remote --remote-url https://www.drupal.org/download-latest/tar.gz --remote-options="--strip-components 1" --recipe drupal9 --webroot . --name lando-drupal9
-      lando start -y
+      lando rebuild -y
       lando composer require drush/drush
       lando composer install
     command: |
