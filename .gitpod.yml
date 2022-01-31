@@ -6,12 +6,12 @@ tasks:
   - name: Setup Gitpod for Lando
     init: |
       lando init --source remote --remote-url https://www.drupal.org/download-latest/tar.gz --remote-options="--strip-components 1" --recipe drupal9 --webroot . --name lando-drupal9
+      chmod ug+w -R /workspace/gitpod/sites/default/
       lando rebuild -y
       lando composer require drush/drush
       lando composer install
     command: |
       lando start -y
-      chmod ug+w -R /workspace/gitpod/sites/default/
       lando drush si -y --account-pass=admin --site-name='lando_drupal9' --db-url=mysql://drupal9:drupal9@database/drupal9 demo_umami
       gp preview $(gp url $(lando info --format=json | jq -r ".[0].urls[1]" | sed -e 's#http://localhost:\(\)#\1#'))
   
