@@ -15,9 +15,7 @@ tasks:
       lando composer require drush/drush
       lando composer install
       chmod ug+w -R /workspace/gitpod/sites/default/
-      cp /workspace/gitpod/sites/default/default.settings.php /workspace/gitpod/sites/default/settings.php
-      echo -e "\n\$databases['default']['default'] = [\n'database' => 'drupal9',\n'username' => 'drupal9',\n'password' => 'drupal9',\n'host' => 'database',\n'port' => '3306',\n'driver' => 'mysql'\n];" >> /workspace/gitpod/sites/default/settings.php
-      lando drush si -y --account-pass=admin --site-name='lando_drupal9' demo_umami
+      lando drush si -y --account-pass=admin --site-name='lando_drupal9' --db-url=mysql://drupal9:drupal9@database/drupal9 demo_umami
       gp preview $(gp url $(lando info --format=json | jq -r ".[0].urls[1]" | sed -e 's#http://localhost:\(\)#\1#'))
   
 ports:
