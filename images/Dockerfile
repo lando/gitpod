@@ -4,6 +4,7 @@ FROM gitpod/workspace-full
 
 RUN sudo groupadd docker \
     && newgrp docker \
+    && sudo usermod -aG docker $USER \
     && sudo curl -fsSL -o /usr/local/bin/lando "https://files.lando.dev/cli/lando-linux-x64-edge" \
     && sudo chmod +x /usr/local/bin/lando \
     && mkdir -p ~/.lando/cache \
