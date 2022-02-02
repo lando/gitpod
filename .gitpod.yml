@@ -1,6 +1,5 @@
 # Learn more about this file at https://www.gitpod.io/docs/references/gitpod-yml
-image:
-  file: images/Dockerfile
+image: devwithlando/gitpod:1-edge
 
 tasks:
   - name:  Setup Gitpod for Lando
