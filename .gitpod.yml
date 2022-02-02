@@ -3,10 +3,7 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: Install
-    before: |
-      cp -f config.yml ~/.lando/config.yml
-      echo false > ~/.lando/cache/report_errors
+  - name:  Setup Gitpod for Lando
     init: |
       lando init --source remote --remote-url https://www.drupal.org/download-latest/tar.gz --remote-options="--strip-components 1" --recipe drupal9 --webroot . --name lando-drupal9
     command: |
@@ -24,10 +21,6 @@ ports:
   - port: 80
     onOpen: ignore
   - port: 443
-    onOpen: ignore
-  - port: 8080
-    onOpen: ignore
-  - port: 4443
     onOpen: ignore
 
 github:
