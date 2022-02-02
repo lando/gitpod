@@ -1,3 +1,5 @@
+# docker build -t devwithlando/gitpod:1 .
+
 FROM gitpod/workspace-full
 
 RUN sudo apt-get -y install apt-transport-https ca-certificates gnupg lsb-release \
