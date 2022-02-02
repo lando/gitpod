@@ -11,3 +11,5 @@ RUN sudo apt-get -y update \
     && echo "proxy: 'OFF'\nbindAddress: '0.0.0.0'\nproxyBindAddress: '0.0.0.0'" > ~/.lando/config.yml \
     && echo false > ~/.lando/cache/report_errors \
     && lando --clear 
+
+USER docker
