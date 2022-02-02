@@ -2,9 +2,10 @@
 
 FROM gitpod/workspace-full
 
-RUN wget https://files.lando.dev/installer/lando-x64-stable.deb \
-    && sudo dpkg -i --ignore-depends docker-ce,iptables lando-x64-stable.deb \
-    && rm -rf lando-x64-stable.deb \
+RUN sudo groupadd docker \
+    && newgrp docker \
+    && sudo curl -fsSL -o /usr/local/bin/lando "https://files.lando.dev/cli/lando-linux-x64-edge" \
+    && sudo chmod +x /usr/local/bin/lando \
     && mkdir -p ~/.lando/cache \
     && echo "proxy: 'OFF'\nbindAddress: '0.0.0.0'\nproxyBindAddress: '0.0.0.0'" > ~/.lando/config.yml \
     && echo false > ~/.lando/cache/report_errors \
