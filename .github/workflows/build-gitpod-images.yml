@@ -17,7 +17,10 @@ jobs:
         include:
           - image: gitpod
             tag: 1
-            context: images
+            context: images/stable
+          - image: gitpod-source
+            tag: 1
+            context: images/source
 
     steps:
       - name: Checkout code
