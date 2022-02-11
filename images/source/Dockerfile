@@ -9,13 +9,14 @@ RUN git clone https://github.com/lando/cli.git \
     && sudo mv ./dist/@lando/cli /usr/local/bin/lando \
     && sudo chmod +x /usr/local/bin/lando && sudo chown root:root /usr/local/bin/lando \
     && sudo mkdir -p /usr/share/lando \
-    && mkdir -p ~/.lando/cache
+    && mkdir -p ~/.lando/cache \
+    && sudo groupadd docker
 
 RUN sudo mkdir -p /scripts
 COPY postinst.sh /scripts
 WORKDIR /scripts
 
-RUN sudo chmod +x postinst.sh && sudo ./postinst.sh \
+RUN sudo chmod +x postinst.sh && ./postinst.sh \
     && echo "proxy: 'OFF'\nbindAddress: '0.0.0.0'\nproxyBindAddress: '0.0.0.0'" > ~/.lando/config.yml \
     && echo false > ~/.lando/cache/report_errors \
     && sudo chmod 755 ~/.lando \
