@@ -1,4 +1,4 @@
-# docker build -t devwithlando/gitpod:1 .
+# docker build -t devwithlando/gitpod-source:1 .
 
 FROM gitpod/workspace-full
 
@@ -12,4 +12,5 @@ RUN git clone https://github.com/lando/cli.git \
     && sudo groupadd docker && sudo usermod -aG docker $USER \
     && echo "proxy: 'OFF'\nbindAddress: '0.0.0.0'\nproxyBindAddress: '0.0.0.0'" > ~/.lando/config.yml \
     && echo false > ~/.lando/cache/report_errors \
+    && sudo chmod 755 ~/.lando \
     && lando --clear 
