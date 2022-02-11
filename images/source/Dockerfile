@@ -8,6 +8,7 @@ RUN git clone https://github.com/lando/cli.git \
     && yarn build:cli \
     && sudo mv ./dist/@lando/cli /usr/local/bin/lando \
     && sudo chmod +x /usr/local/bin/lando && sudo chown root:root /usr/local/bin/lando \
+    && sudo mkdir -p /usr/share/lando \
     && mkdir -p ~/.lando/cache
 
 RUN sudo mkdir -p /scripts
