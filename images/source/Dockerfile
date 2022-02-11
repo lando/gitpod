@@ -15,7 +15,7 @@ RUN sudo mkdir -p /scripts
 COPY postinst.sh /scripts
 WORKDIR /scripts
 
-RUN sudo chmod +x postinst.sh && ./postinst.sh \
+RUN sudo chmod +x postinst.sh && sudo ./postinst.sh \
     && echo "proxy: 'OFF'\nbindAddress: '0.0.0.0'\nproxyBindAddress: '0.0.0.0'" > ~/.lando/config.yml \
     && echo false > ~/.lando/cache/report_errors \
     && sudo chmod 755 ~/.lando \
