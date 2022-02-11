@@ -8,8 +8,8 @@ RUN git clone https://github.com/lando/cli.git \
     && yarn build:cli \
     && sudo mv ./dist/@lando/cli /usr/local/bin/lando \
     && sudo chmod +x /usr/local/bin/lando && sudo chown root:root /usr/local/bin/lando \
-    && mkdir -p ~/.lando/cache && sudo chmod -R 755 ~./lando 
-
+    && mkdir -p ~/.lando/cache
+    
 RUN mkdir -p /scripts
 COPY postinst.sh /scripts
 WORKDIR /scripts
