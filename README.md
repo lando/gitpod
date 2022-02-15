@@ -11,6 +11,8 @@ Contains 2 images:
 
 ## Basic Usage
 
+in your [.gitpod.yml](https://www.gitpod.io/docs/config-gitpod-file) put the following:
+
 ```yaml
 image: devwithlando/gitpod:1
 
