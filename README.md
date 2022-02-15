@@ -1,6 +1,6 @@
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/lando/gitpod)
 
-# Lando Gitpod Intergration
+# Lando Gitpod Integration
 
 Contains Docker images that you can utilize to run [Lando](https://lando.dev) in your [Gitpod](https://gitpod.io) setup.
 
