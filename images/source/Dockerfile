@@ -1,4 +1,4 @@
-# docker build -t devwithlando/gitpod:1 .
+# docker build -t devwithlando/gitpod-source:1 .
 
 FROM gitpod/workspace-full
 
