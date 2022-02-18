@@ -11,9 +11,4 @@ RUN sudo rm /usr/local/bin/docker-compose \
     && yarn build:cli \
     && sudo mv ./dist/@lando/cli /usr/local/bin/lando \
     && sudo chmod +x /usr/local/bin/lando && sudo chown root:root /usr/local/bin/lando \
-    && mkdir -p ~/.lando/cache \
-    && sudo usermod -aG docker $USER \
-    && echo "proxy: 'OFF'\nbindAddress: '0.0.0.0'\nproxyBindAddress: '0.0.0.0'" > ~/.lando/config.yml \
-    && echo false > ~/.lando/cache/report_errors \
-    && chmod 755 ~/.lando \
-    && lando --clear 
+    && mkdir -p ~/.lando/cache 
