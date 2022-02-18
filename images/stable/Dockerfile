@@ -1,6 +1,6 @@
 # docker build -t devwithlando/gitpod:1 .
 
-FROM gitpod/workspace-full
+FROM gitpod/workspace-base
 
 RUN sudo rm /usr/local/bin/docker-compose \
     && sudo groupadd docker \
