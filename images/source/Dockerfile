@@ -5,7 +5,6 @@ FROM gitpod/workspace-base
 RUN sudo rm /usr/local/bin/docker-compose \
     && sudo curl -fsSL -o /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64 \
     && sudo chmod +x /usr/local/bin/docker-compose \
-    && sudo groupadd docker \
     && git clone https://github.com/lando/cli.git \
     && cd cli \
     && yarn install --prefer-offline --frozen-lockfile \

@@ -3,7 +3,6 @@
 FROM gitpod/workspace-base
 
 RUN sudo rm /usr/local/bin/docker-compose \
-    && sudo groupadd docker \
     && wget https://files.lando.dev/installer/lando-x64-latest.deb \
     && sudo dpkg -i --ignore-depends docker-ce,iptables lando-x64-latest.deb && rm -rf lando-x64-latest.deb \
     && mkdir -p ~/.lando/cache \
