@@ -1,7 +1,7 @@
 name: Automatic Stable Gitpod Image Update
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '14 3 * * *'
 
 jobs:
   auto-update-stable-images:
