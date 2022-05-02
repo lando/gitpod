@@ -3,8 +3,6 @@ image: devwithlando/gitpod-source:1-edge
 
 tasks:
   - name:  Setup Gitpod for Lando
-    init: |
-      docker build -t devwithlando/php:8.0-apache-4 .
     command: |
       lando init --source remote --remote-url https://www.drupal.org/download-latest/tar.gz --remote-options="--strip-components 1" --recipe drupal9 --webroot . --name lando-drupal9
       lando start
