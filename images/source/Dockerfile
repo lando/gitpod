@@ -7,7 +7,7 @@ RUN sudo rm /usr/local/bin/docker-compose \
     && sudo chmod +x /usr/local/bin/docker-compose \
     && git clone https://github.com/lando/cli.git \
     && cd cli \
-    && yarn install --prefer-offline --frozen-lockfile --production \
+    && yarn install --prefer-offline --frozen-lockfile \
     && yarn build:cli \
     && sudo mv ./dist/@lando/cli /usr/local/bin/lando \
     && sudo chmod +x /usr/local/bin/lando && sudo chown root:root /usr/local/bin/lando \
