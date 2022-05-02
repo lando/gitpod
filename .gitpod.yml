@@ -15,6 +15,12 @@ tasks:
 ports:
   - port: 3306
     onOpen: ignore
+  - port: 8080
+    onOpen: ignore
+  - port: 8443
+    onOpen: ignore
+  - port: 9003
+    onOpen: ignore
   - port: 80
     onOpen: ignore
   - port: 443
