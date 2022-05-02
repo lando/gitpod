@@ -13,8 +13,6 @@ tasks:
       gp preview $(gp url $(lando info --format=json | jq -r ".[0].urls[1]" | sed -e 's#http://localhost:\(\)#\1#'))
   
 ports:
-  - port: 3306
-    onOpen: ignore
   - port: 80
     onOpen: ignore
   - port: 443
