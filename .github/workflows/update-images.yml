@@ -16,7 +16,7 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v2
         with:
-          token: ${{ secrets.PIROG_TOKEN }}
+          token: ${{ secrets.RTFM47_COAXIUM_INJECTOR }}
           fetch-depth: 0
       - name: Setup git user
         shell: bash
