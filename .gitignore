@@ -22,3 +22,11 @@
 # Ignore database dumps
 /*.sql
 /*.sql.gz
+
+
+# Syncthing
+.stfolder/
+.stversions/
+.stignore
+*.sync-conflict-*
+
