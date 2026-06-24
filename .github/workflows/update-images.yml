@@ -11,10 +11,10 @@ jobs:
     strategy:
       matrix:
         os:
-          - ubuntu-20.04
+          - ubuntu-24.04
     steps:
       - name: Clone repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v6
         with:
           token: ${{ secrets.RTFM47_COAXIUM_INJECTOR }}
           fetch-depth: 0
